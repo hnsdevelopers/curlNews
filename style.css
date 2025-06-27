@@ -1,0 +1,221 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#image{
+    height: 100vh;
+    /* overflow: hidden; */
+}
+
+.news_image_container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    margin-bottom: 0;
+    overflow: hidden;
+    border-radius: 0;
+}
+
+.news_image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.news_image_overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+    z-index: 1;
+}
+
+.news_image_text {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    color: #fff;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+}
+
+.news_image_text div:nth-child(2) {
+    font-size: 1em;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 90vw;
+    line-height: 1.3em;
+    max-height: 8em;
+}
+
+#previous, #next, #scrollToTop{
+    width: 30px;
+    height: 30px;
+    background-color: #111;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 99;
+}
+
+#previous:hover, #next:hover{
+    background-color: #333;
+}
+
+#previous{
+    position: fixed;
+    top: 30px;
+    left: 50%;
+}
+
+#next{
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+}   
+
+#scrollToTop{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+}
+
+#title, #description{
+    z-index: 999;
+    text-align: center;
+    width: 100%;
+}
+
+#title{
+    position: absolute;
+    bottom: 520px;
+    color: #333;
+    font-size: 40px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+#description{
+    position: absolute;
+    bottom: 320px;
+    color: #333;
+    font-size: 16px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.read-more-btn {
+    margin-top: 12px;
+    padding: 8px 20px;
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 1em;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: background 0.2s;
+    z-index: 3;
+    position: relative;
+    display: inline-block;
+}
+.read-more-btn:hover {
+    background: #e64a19;
+}
+
+#languageSelect {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    z-index: 100;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: none;
+    background: #222;
+    color: #fff;
+    font-size: 1em;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    outline: none;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+#languageSelect:focus, #languageSelect:hover {
+    background: #444;
+    color: #ff5722;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 60px;
+    background: #181818;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 1001;
+    box-shadow: 0 -2px 8px rgba(0,0,0,0.15);
+}
+
+.bottom-nav .nav-item {
+    color: #aaa;
+    font-size: 2em;
+    flex: 1;
+    text-align: center;
+    transition: color 0.2s;
+    padding: 0 0 4px 0;
+    text-decoration: none;
+}
+
+.bottom-nav .nav-item.active,
+.bottom-nav .nav-item:active,
+.bottom-nav .nav-item:hover {
+    color: #ff5722;
+}
+
+@media (max-width: 800px) {
+    #previous, #next, #scrollToTop{
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+        display: none;
+    }
+
+    #title{
+        bottom: 600px;
+    }
+}
+
+@media (max-width: 768px) {
+    .news_image_text {
+        top: 50%;
+        left: 50%;
+        bottom: 0px;
+        right: unset;
+        transform: translate(0%, -10%);
+        width: 90vw;
+        text-align: center;
+        /* padding: 16px 8px; */
+        background: rgba(0,0,0,0.35);
+        border-radius: 12px;
+        box-sizing: border-box;
+    }
+    .news_image_text div {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 769px) {
+    .bottom-nav {
+        display: none;
+    }
+}

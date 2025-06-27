@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CurNews</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Boxicons CDN -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="image">
+    </div>
+
+    <div id="previous">&#8593;</div>
+    <div id="next">&#8595;</div>
+    <div id="scrollToTop">&#8593;</div>
+
+
+    <!-- Place this in your HTML where appropriate -->
+    <select id="languageSelect" style="position:fixed;top:30px;right:30px;z-index:100;">
+      <option value="en">English</option>
+      <option value="hi">हिंदी</option>
+      <option value="ur">اردو</option>
+      <option value="es">español</option>
+      <option value="fr">français</option>
+      <option value="bn">বাংলা (Bengali)</option>
+      <option value="gu">ગુજરાતી (Gujarati)</option>
+      <option value="kn">ಕನ್ನಡ (Kannada)</option>
+      <option value="ml">മലയാളം (Malayalam)</option>
+      <option value="mr">मराठी (Marathi)</option>
+      <option value="or">ଓଡ଼ିଆ (Odia)</option>
+      <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
+      <option value="ta">தமிழ் (Tamil)</option>
+      <option value="te">తెలుగు (Telugu)</option>
+      <option value="as">অসমীয়া (Assamese)</option>
+      <option value="ks">کٲشُر (Kashmiri)</option>
+      <option value="kok">कोंकणी (Konkani)</option>
+      <option value="mai">मैथिली (Maithili)</option>
+      <option value="ne">नेपाली (Nepali)</option>
+      <option value="sd">سنڌي (Sindhi)</option>
+      <option value="sa">संस्कृतम् (Sanskrit)</option>
+      <option value="sat">ᱥᱟᱱᱛᱟᱲᱤ (Santali)</option>
+      <option value="doi">डोगरी (Dogri)</option>
+      <option value="mni">মৈতৈলোন (Manipuri)</option>
+      <option value="bho">भोजपुरी (Bhojpuri)</option>
+    </select>
+
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item active"><i class='bx bx-home'></i></a>
+      <a href="#" class="nav-item"><i class='bx bx-search'></i></a>
+      <a href="trending.html" class="nav-item"><i class='bx bx-trending-up'></i></a>
+    </nav>
+
+    <!-- Search Popup -->
+<div id="searchPopup" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(0,0,0,0.7); z-index:2000; align-items:center; justify-content:center;">
+  <div style="background:#222; padding:24px 16px; border-radius:16px; width:90vw; max-width:400px; margin:auto; display:flex; flex-direction:column; align-items:center;">
+    <input id="searchInput" type="text" placeholder="Search news..." style="width:100%; padding:12px; border-radius:8px; border:none; font-size:1.1em; margin-bottom:16px; outline:none;">
+    <button id="searchBtn" style="padding:10px 24px; border:none; border-radius:8px; background:#ff5722; color:#fff; font-size:1em; cursor:pointer;">Search</button>
+    <button id="closeSearch" style="margin-top:12px; background:none; border:none; color:#aaa; font-size:1.2em; cursor:pointer;">Close</button>
+    <div id="searchResults" style="margin-top:18px; width:100%; color:#fff;"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8/hammer.min.js"></script>
+<script src="trendingscript.js"></script>
+<script>
+  // Open popup on search icon click
+  document.querySelector('.bottom-nav .bx-search').parentElement.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('searchPopup').style.display = 'flex';
+    document.getElementById('searchInput').focus();
+  });
+  // Close popup
+  document.getElementById('closeSearch').onclick = function() {
+    document.getElementById('searchPopup').style.display = 'none';
+    document.getElementById('searchResults').innerHTML = '';
+    document.getElementById('searchInput').value = '';
+  };
+  // Optional: Enter key triggers search
+  document.getElementById('searchInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') document.getElementById('searchBtn').click();
+  });
+</script>
+</body>
+</html>
